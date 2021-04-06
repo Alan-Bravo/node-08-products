@@ -1,0 +1,129 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Rest base repo",
+    "description": "This is an API base to start new proyects",
+    "version": "0.0.1",
+    "contact": {
+      "email": "bravoalangonzalo@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1",
+      "description": "Desarrollo"
+    },
+    {
+      "url": "https://node-06-restsv.herokuapp.com/api/v1",
+      "description": "Producción"
+    }
+  ],
+  "tags": [
+    {
+      "name": "users",
+      "description": "Operations about users"
+    }
+  ],
+  "paths": {
+    "/users/": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Get a list of all users",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Array of users in JSON format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Create a new user",
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User created"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "put": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Update an existing user by providing the id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of user that needs to be updated",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "User id",
+            "type": "integer",
+            "example": "3"
+          },
+          "name": {
+            "description": "User name",
+            "type": "string",
+            "example": "Alan"
+          }
+        }
+      }
+    }
+  }
+}
