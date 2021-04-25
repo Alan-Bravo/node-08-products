@@ -3,7 +3,7 @@ const {
   getAllUsers,
   createUser,
   updateUser,
-  updatePartialUser,
+  getById,
   deleteUser,
 } = require('../controllers/users');
 
@@ -12,7 +12,7 @@ const routes = Router();
 routes.get('/', getAllUsers);
 routes.post('/', createUser);
 routes.put('/:id', updateUser);
-routes.patch('/:id', updatePartialUser);
+routes.get('/:id', getById);
 routes.delete('/:id', deleteUser);
 
 module.exports = routes;
