@@ -3,7 +3,7 @@
   "info": {
     "title": "API Rest base repo",
     "description": "This is an API base to start new proyects",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "contact": {
       "email": "bravoalangonzalo@gmail.com"
     }
@@ -27,9 +27,7 @@
   "paths": {
     "/users/": {
       "get": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "summary": "Get a list of all users",
         "description": "",
         "responses": {
@@ -49,9 +47,7 @@
         }
       },
       "post": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "summary": "Create a new user",
         "description": "",
         "requestBody": {
@@ -72,9 +68,7 @@
     },
     "/users/{id}": {
       "put": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "summary": "Update an existing user by providing the id",
         "description": "",
         "parameters": [
@@ -107,9 +101,7 @@
   "components": {
     "schemas": {
       "User": {
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "type": "object",
         "properties": {
           "id": {
