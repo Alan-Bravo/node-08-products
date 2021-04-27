@@ -6,13 +6,20 @@ const {
   getById,
   deleteUser,
 } = require('../controllers/users');
+const {
+  postRequestValidations,
+  putRequestValidations,
+  getAllRequestValidation,
+  getRequestValidation,
+  deleteRequestValidations,
+} = require('../middlerwares/users');
 
 const routes = Router();
 
-routes.get('/', getAllUsers);
-routes.post('/', createUser);
-routes.put('/:id', updateUser);
-routes.get('/:id', getById);
-routes.delete('/:id', deleteUser);
+routes.get('/', getAllRequestValidation, getAllUsers);
+routes.post('/', postRequestValidations, createUser);
+routes.put('/:id', putRequestValidations, updateUser);
+routes.get('/:id', getRequestValidation, getById);
+routes.delete('/:id', deleteRequestValidations, deleteUser);
 
 module.exports = routes;
